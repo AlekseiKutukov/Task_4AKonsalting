@@ -1,6 +1,7 @@
-const PriceDisplay = ({ price, fullPrice, isExpired }) => {
+const PriceDisplay = ({ price, fullPrice, is_best, isExpired }) => {
+  const isBest = is_best;
   return (
-    <div className="relative flex flex-col items-end h-12 overflow-hidden">
+    <div className="relative flex flex-col items-end  overflow-hidden">
       {/* Скидочная цена: исчезает при истечении */}
       <div
         className={`transition-all duration-500 transform ${
@@ -9,7 +10,14 @@ const PriceDisplay = ({ price, fullPrice, isExpired }) => {
             : "opacity-100 translate-y-0"
         }`}
       >
-        <span className="text-3xl font-bold text-[#FD5656]">{price} ₽</span>
+        <span
+          className={`font-montserrat font-semibold text-[50px] ${isBest ? "text-[#FDB056]" : ""}`}
+        >
+          {price} ₽
+        </span>
+        <div className="text-gray-400 line-through text-lg text-right">
+          {fullPrice} ₽
+        </div>
       </div>
 
       {/* Обычная цена: появляется при истечении */}
@@ -18,7 +26,11 @@ const PriceDisplay = ({ price, fullPrice, isExpired }) => {
           isExpired ? "opacity-100 translate-y-0" : "opacity-0 translate-y-full"
         }`}
       >
-        <span className="text-3xl font-bold text-white">{fullPrice} ₽</span>
+        <span
+          className={`font-montserrat font-semibold text-[40px] ${isBest ? "text-[#FDB056]" : ""}`}
+        >
+          {fullPrice} ₽
+        </span>
       </div>
     </div>
   );

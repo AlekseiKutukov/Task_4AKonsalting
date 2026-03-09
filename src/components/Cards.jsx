@@ -28,14 +28,12 @@ const Card = ({ tariff, isExpired }) => {
           {tariff.period}
         </h3>
 
-        <div
-          className={`font-montserrat font-semibold text-[50px] ${isBest ? "text-[#FDB056]" : ""}`}
-        >
-          {tariff.price} ₽
-        </div>
-        <div className="text-gray-400 line-through text-lg text-right">
-          {tariff.full_price} ₽
-        </div>
+        <PriceDisplay
+          price={tariff.price}
+          fullPrice={tariff.full_price}
+          is_best={tariff.is_best}
+          isExpired={isExpired}
+        />
       </div>
 
       <div
@@ -43,12 +41,6 @@ const Card = ({ tariff, isExpired }) => {
       >
         <p className="text-gray-300 text-sm">{tariff.text}</p>
       </div>
-
-      <PriceDisplay
-        price={tariff.price}
-        fullPrice={tariff.full_price}
-        isExpired={isExpired}
-      />
 
       <div className="flex flex-col gap-2 h-full pt-[5px] mx-auto">
         {isBest && (

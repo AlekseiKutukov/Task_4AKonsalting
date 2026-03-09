@@ -6,9 +6,9 @@ import Footer from "./layouts/Footer";
 import useTimer from "./hooks/useTimer";
 
 function App() {
-  // COUNT_MINUTES = 2
-  // const timeLeft = useTimer(COUNT_MINUTES * 60); // 2 минуты
-  const timeLeft = useTimer(5); // 5сек
+  const COUNT_MINUTES = 2;
+  const timeLeft = useTimer(COUNT_MINUTES * 60); // 2 минуты
+  // const timeLeft = useTimer(2); // 5сек
   const [tariffs, setTariffs] = useState([]);
   const [loading, setLoading] = useState(true);
   const isExpired = timeLeft <= 0;
