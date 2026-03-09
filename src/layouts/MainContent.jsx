@@ -1,13 +1,10 @@
-import { useState, useEffect } from "react";
-import { getTariffs } from "../api/tarriffs";
-import Card from "../components/Cards";
 import manImg from "./../assets/image/man.svg";
 import ConsentForm from "../components/ConsentForm";
 import LegalDisclaimer from "../components/LegalDisclaimer";
 import AttentionBlock from "../components/AttentionBlock";
 import PriceOffers from "../components/PriceOffers";
 
-const MainContent = () => {
+const MainContent = ({ isExpired }) => {
   return (
     <>
       <h1 className="font-['Montserrat'] font-bold text-[40px] text-white leading-tight">
@@ -26,7 +23,7 @@ const MainContent = () => {
 
         {/* Правая часть: Текст */}
         <section className="flex flex-col gap-6 w-full mx-auto p-4">
-          <PriceOffers />
+          <PriceOffers isExpired={isExpired} />
           <AttentionBlock />
           <ConsentForm />
           <LegalDisclaimer />

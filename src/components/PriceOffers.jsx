@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getTariffs } from "../api/tarriffs";
 import Card from "../components/Cards";
 
-const PriceOffers = () => {
+const PriceOffers = ({ isExpired }) => {
   const [tariffs, setTariffs] = useState([]);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const PriceOffers = () => {
           key={tariff.id}
           className={`${index === 0 ? "md:col-span-3" : "md:col-span-1"}`}
         >
-          <Card tariff={tariff} />
+          <Card tariff={tariff} isExpired={isExpired} />
         </div>
       ))}
     </div>

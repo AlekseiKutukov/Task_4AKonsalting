@@ -1,6 +1,7 @@
 import { calculateDiscount } from "../api/tarriffs";
+import PriceDisplay from "./PriceDisplay";
 
-const Card = ({ tariff }) => {
+const Card = ({ tariff, isExpired }) => {
   const isBest = tariff.is_best;
   const discount = calculateDiscount(tariff.price, tariff.full_price);
 
@@ -43,7 +44,13 @@ const Card = ({ tariff }) => {
         <p className="text-gray-300 text-sm">{tariff.text}</p>
       </div>
 
-      <div class="flex flex-col gap-2 h-full pt-[5px] mx-auto">
+      <PriceDisplay
+        price={tariff.price}
+        fullPrice={tariff.full_price}
+        isExpired={isExpired}
+      />
+
+      <div className="flex flex-col gap-2 h-full pt-[5px] mx-auto">
         {isBest && (
           <span className=" text-[#FDB056] font-medium text-[22px] lowercase">
             Хит!

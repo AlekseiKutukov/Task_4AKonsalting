@@ -6,9 +6,12 @@ import Footer from "./layouts/Footer";
 import useTimer from "./hooks/useTimer";
 
 function App() {
-  const timeLeft = useTimer(2 * 60); // 2 минуты
+  // COUNT_MINUTES = 2
+  // const timeLeft = useTimer(COUNT_MINUTES * 60); // 2 минуты
+  const timeLeft = useTimer(5); // 5сек
   const [tariffs, setTariffs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const isExpired = timeLeft <= 0;
 
   useEffect(() => {
     const loadData = async () => {
@@ -30,9 +33,9 @@ function App() {
 
   return (
     <>
-      <Header timeLeft={timeLeft} />
+      <Header timeLeft={timeLeft} isExpired={isExpired} />
       <main className="flex-grow pt-40 w-full max-w-[1216px] mx-auto px-4 ">
-        <MainContent />
+        <MainContent isExpired={isExpired} />
         <Footer />
       </main>
     </>
