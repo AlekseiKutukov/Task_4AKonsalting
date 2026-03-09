@@ -18,8 +18,9 @@ export const getTariffs = async () => {
 };
 
 /* Расчет скидки */
+// Не соответствует макету, но у нас другие цифры с сервера
 export const calculateDiscount = (price, fullPrice) => {
   if (!fullPrice || fullPrice === 0) return 0;
   const discount = ((fullPrice - price) / fullPrice) * 100;
-  return Math.round(discount);
+  return Math.round(discount / 10) * 10;
 };
