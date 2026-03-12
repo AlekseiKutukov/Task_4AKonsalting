@@ -61,7 +61,7 @@ const ConsentForm = () => {
       <button
         onClick={handlePurchase}
         disabled={!isChecked}
-        className={`max-w-[352px] py-[20px] rounded-[20px] font-bold text-lg transition-all duration-300 ${
+        className={`w-full sm:max-w-[352px] py-[20px] rounded-[20px] font-bold text-lg transition-all duration-300 ${
           isChecked
             ? "bg-[#FDB056] text-black hover:bg-orange-500 transform active:scale-95 shadow-lg shadow-orange-500/20"
             : "bg-gray-600 text-gray-400 cursor-not-allowed opacity-60"

@@ -34,7 +34,7 @@ function App() {
   return (
     <>
       <Header timeLeft={timeLeft} isExpired={isExpired} />
-      <main className="flex-grow pt-40 w-full max-w-[1216px] mx-auto px-4 ">
+      <main className="flex-grow pt-[110px] md:pt-40 w-full max-w-[1216px] mx-auto px-4">
         <MainContent isExpired={isExpired} />
         <Footer />
       </main>

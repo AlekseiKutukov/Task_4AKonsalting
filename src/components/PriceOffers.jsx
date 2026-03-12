@@ -21,12 +21,27 @@ const PriceOffers = ({ isExpired }) => {
     });
   }, []);
 
+  // Если данные еще загружаются (массив пуст)
+  if (tariffs.length === 0) {
+    return (
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        {[1, 2, 3, 4].map((_, index) => (
+          <div
+            key={`skeleton-${index}`}
+            className={`${index === 0 ? "lg:col-span-3 h-[180px]" : "lg:col-span-1 h-[220px]"} 
+          bg-[#2D3233] rounded-[30px] animate-pulse border border-gray-700`}
+          />
+        ))}
+      </div>
+    );
+  }
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
       {tariffs.map((tariff, index) => (
         <div
           key={`${tariff.id}-${index}`}
-          className={`${index === 0 ? "md:col-span-3" : "md:col-span-1"}`}
+          className={`${index === 0 ? "lg:col-span-3" : "lg:col-span-1"}`}
           // onClick={() => setSelectedId(tariff.id)} // это было бы логичнее, но прилитает одинаковый id с сервера
           onClick={() => setSelectedId(index)}
         >
