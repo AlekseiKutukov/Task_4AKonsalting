@@ -4,6 +4,7 @@ import Card from "../components/Cards";
 
 const PriceOffers = ({ isExpired }) => {
   const [tariffs, setTariffs] = useState([]);
+  const [selectedId, setSelectedId] = useState(null); //храним  id выбранного тарифа
 
   useEffect(() => {
     getTariffs().then((data) => {
@@ -24,10 +25,17 @@ const PriceOffers = ({ isExpired }) => {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       {tariffs.map((tariff, index) => (
         <div
-          key={tariff.id}
+          key={`${tariff.id}-${index}`}
           className={`${index === 0 ? "md:col-span-3" : "md:col-span-1"}`}
+          // onClick={() => setSelectedId(tariff.id)} // это было бы логичнее, но прилитает одинаковый id с сервера
+          onClick={() => setSelectedId(index)}
         >
-          <Card tariff={tariff} isExpired={isExpired} />
+          <Card
+            tariff={tariff}
+            isExpired={isExpired}
+            // isSelected={selectedId === tariff.id}
+            isSelected={selectedId === index}
+          />
         </div>
       ))}
     </div>

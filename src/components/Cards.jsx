@@ -1,15 +1,26 @@
 import { calculateDiscount } from "../api/tarriffs";
 import PriceDisplay from "./PriceDisplay";
 
-const Card = ({ tariff, isExpired }) => {
+const Card = ({ tariff, isExpired, isSelected }) => {
   const isBest = tariff.is_best;
   const discount = calculateDiscount(tariff.price, tariff.full_price);
 
   return (
     <div
-      className={`rounded-[30px] flex flex-col gap-4 border transition-all h-full
-      ${isBest ? "md:flex-row border-orange-400" : "border-gray-700"} bg-[#2D3233]`}
-      //только хит на всю ширину
+      className={`rounded-[30px] flex flex-col gap-4 border transition-all h-full cursor-pointer
+  /* Сохраняем твою логику для Хита (горизонтальный вид) */
+  ${isBest ? "md:flex-row" : "border-gray-700"} 
+  
+  /* Добавляем логику выделения */
+  ${
+    isSelected
+      ? "border-[#FDB056] bg-[#363B3C] shadow-[0_0_15px_rgba(253,176,86,0.2)] scale-[1.01]"
+      : isBest
+        ? "border-orange-400"
+        : "border-gray-700"
+  }
+    
+  bg-[#2D3233] hover:bg-[#323738]`}
     >
       <div
         className={`flex flex-col gap-2 h-full pl-[51px] ${isBest ? "md:w-1/7 " : ""}`}

@@ -3,7 +3,8 @@ import starRed from "./../assets/icon/StarRed.svg";
 import starYellow from "./../assets/icon/StarYellow.svg";
 
 const Header = ({ timeLeft }) => {
-  const isUrgent = timeLeft <= 30; //количество секунд для мигания
+  // const isUrgent = timeLeft <= 30; //количество секунд для мигания
+  const isUrgent = timeLeft <= 3; //количество секунд для мигания
   const starIcon = isUrgent ? starRed : starYellow;
   const timerColor = isUrgent ? "text-[#FF4E4E]" : "text-[#FFBB00]";
 

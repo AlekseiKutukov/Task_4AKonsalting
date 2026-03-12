@@ -7,8 +7,8 @@ import useTimer from "./hooks/useTimer";
 
 function App() {
   const COUNT_MINUTES = 2;
-  const timeLeft = useTimer(COUNT_MINUTES * 60); // 2 минуты
-  // const timeLeft = useTimer(2); // 5сек
+  // const timeLeft = useTimer(COUNT_MINUTES * 60); // 2 минуты
+  const timeLeft = useTimer(COUNT_MINUTES * 3); // 6 сек, чтобы видеть результат
   const [tariffs, setTariffs] = useState([]);
   const [loading, setLoading] = useState(true);
   const isExpired = timeLeft <= 0;
