@@ -1,5 +1,7 @@
 Тестовое задание для кандидата на вакансию Frontend-разработчик
 
+результат: https://alekseikutukov.github.io/Task_4AKonsalting/
+
 Необходимо перейти по ссылке в Figma https://www.figma.com/design/JGEEg5x4UXnA3LiBoIHvo1/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-Frontend--Copy-?node-id=0-1&p=f&t=m1mmtHKW8nRJLCp6-0
 
 Сохранить файл себе в Draft
